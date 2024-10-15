@@ -1,10 +1,21 @@
 {{ with .Params.status }}
     {{ if eq "seeding" . }}
-    <span class="status">Seeding 🌱</span>
-    {{ else if eq "growing" . }}
-    <span class="status">Growing 🌿</span>
+        <span class="status">Seeding 🌱</span>
+    {{ else if eq "sprout" . }}
+        <span class="status">Sprout 🌿</span>
+    {{ else if eq "vegetative" . }}
+        <span class="status">Vegetative 🍃</span>
+    {{ else if eq "budding" . }}
+        <span class="status">Budding 🌷</span>
+    {{ else if eq "flowering" . }}
+        <span class="status">Flowering 🌸</span>
+    {{ else if eq "ripe" . }}
+        <span class="status">Ripening 🍇</span>
+    {{ else if eq "compost" . }}
+        <span class="status">Composting ♻️</span>
     {{ else if eq "evergreen" . }}
-    <span class="status">Evergreen 🌳</span>
+        <span class="status">Evergreen 🌲</span>
     {{ else }}
+        <span class="status">Icebox ❄️</span>
     {{ end }}
 {{ end }}
