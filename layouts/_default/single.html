@@ -5,8 +5,8 @@
         <div class="container-fluid py-2">
             <h1 class="display-2 mb-4 text-center">{{ .Title }}</h1>
         </div>
-        {{ with .Summary }}
-        <p class="text-center fs-4 fst-italic serif">{{ . }}</p>
+        {{ if isset . "Summary" }}
+        <p class="text-center fs-4 fst-italic serif">{{ .Summary | safeHTML }}</p>
         {{ end }}
         <div class="text-center pt-4">
             {{ with .Params.links }}
