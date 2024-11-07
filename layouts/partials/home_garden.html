@@ -4,16 +4,25 @@
             <div class="row justify-content-between">
                 <div class="col-8">
                     <h5 class="card-title">{{ .Title }}</h5>
-                    <!-- <p class="card-text">{{ .Summary }}</p> -->
+                    <p class="card-text">
+                        {{ .Summary | safeHTML | truncate 100}}
+                    </p>
                 </div>
-                <div class="col-4 ">
+                <div class="col-4">
                     <p class="card-right">
-                        <span class="card-date">{{ .Lastmod.Format "Jan 2, 2006" }} </span>
-                        <br/>{{ partial "status.html" . }}
+                        <span class="card-date"
+                            >{{ .Lastmod.Format "Jan 2, 2006" }}
+                        </span>
+                        <br />{{ partial "status.html" . }}
                     </p>
                 </div>
             </div>
             <a href="{{ .Permalink }}" class="stretched-link"></a>
+            <div class="col align-self-start">
+                {{ with .Params.garden_tags }} {{ range . }}
+                <span class="badge text-bg-success">{{ . }}</span>
+                {{ end }} {{ end }}
+            </div>
         </div>
-    </div>   
-</div>   
+    </div>
+</div>

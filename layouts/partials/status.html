@@ -1,21 +1,38 @@
-{{ with .Params.status }}
-    {{ if eq "seeding" . }}
-        <span class="status">Seeding 🌱</span>
-    {{ else if eq "sprout" . }}
-        <span class="status">Sprout 🌿</span>
-    {{ else if eq "vegetative" . }}
-        <span class="status">Vegetative 🍃</span>
-    {{ else if eq "budding" . }}
-        <span class="status">Budding 🌷</span>
-    {{ else if eq "flowering" . }}
-        <span class="status">Flowering 🌸</span>
-    {{ else if eq "ripe" . }}
-        <span class="status">Ripening 🍇</span>
-    {{ else if eq "compost" . }}
-        <span class="status">Composting ♻️</span>
-    {{ else if eq "evergreen" . }}
-        <span class="status">Evergreen 🌲</span>
+{{ with .Params.status }} {{ if eq "seeding" . }}
+<span class="status">Seeding 🌱</span>
+{{ else if eq "sprout" . }}
+<span class="status">Sprout 🌿</span>
+{{ else if eq "vegetative" . }}
+<span class="status">Vegetative 🍃</span>
+{{ else if eq "budding" . }}
+<span class="status">Budding 🌷</span>
+{{ else if eq "flowering" . }}
+<span class="status">Flowering 🌸</span>
+{{ else if eq "ripe" . }}
+<span class="status">Ripening 🍇</span>
+{{ else if eq "compost" . }}
+<span class="status">Composting ♻️</span>
+{{ else if eq "evergreen" . }}
+<span class="status">Evergreen 🌲</span>
+{{ else }}
+<span class="status">Icebox ❄️</span>
+{{ end }} {{ end }} 
+
+
+
+{{with .Params.suggesstion }} 
+
+    {{ if eq "mustread" . }}
+    <span class="badge text-bg-success">A must read</span>
+    {{ else if eq "recommended" . }}
+    <span class="badge text-bg-warning">Highly Recommended</span>
+    {{ else if eq "motivating" . }}
+    <span class="badge text-bg-info">Very motivating book</span>
+    {{ else if eq "onetime" . }}
+    <span class="badge text-bg-secondary">A good one time read</span>
     {{ else }}
-        <span class="status">Icebox ❄️</span>
-    {{ end }}
+    <span class="badge text-bg-light"> Read if jobless </span>
+    
+    {{ end }} 
+
 {{ end }}
