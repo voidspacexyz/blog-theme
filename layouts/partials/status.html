@@ -36,3 +36,25 @@
     {{ end }} 
 
 {{ end }}
+
+
+{{with .Params.reading}}
+  {{ if in . "easy" }}
+    <span class="badge text-bg-success">Easy Read</span>
+  {{ end }}
+  {{ if in . "challenging" }}
+    <span class="badge text-bg-danger">Challenging Read</span>
+  {{ end }}
+  {{ if in . "moderate" }}
+    <span class="badge text-bg-warning">Not Very Challenging</span>
+  {{ end }}
+  {{ if in . "long" }}
+    <span class="badge text-bg-warning">Long Read</span>
+  {{ end }}
+  {{ if in . "short" }}
+    <span class="badge text-bg-success">Short Read</span>
+  {{ end }}
+  {{ if not (or (in . "easy") (in . "challenging") (in . "long") (in . "short") (in . "moderate")) }}
+    <span class="badge text-bg-light"> </span>
+  {{ end }}
+{{end}}
